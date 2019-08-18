@@ -1,3 +1,5 @@
 local.list
 env.list
 venv/
+__pycache__/
+**/*.pyc
