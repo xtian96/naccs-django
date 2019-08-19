@@ -20,3 +20,9 @@
 {% else %}
 <a href='https://discordapp.com/api/oauth2/authorize?client_id=610627028479246338&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fsettings%2Faccount%2Fdiscordcallback&response_type=code&scope=identify'>Login with Discord</a>
 {% endif %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>

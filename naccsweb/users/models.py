@@ -7,6 +7,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(max_length=500, blank=True)
     verified_student = models.BooleanField(default=False)
+    college = models.CharField(max_length=80, blank=True)
     college_email = models.EmailField(blank=True)
     # TODO: Link to school db
     grad_date = models.DateField(null=True, blank=True)

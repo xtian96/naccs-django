@@ -3,10 +3,25 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 from .oauth import get_discord_name, get_faceit_name
+from .schools import get_schools
+from .forms import CollegeForm
 
 @login_required
 def account(request):
-    return render(request, 'settings/account.html')
+    schools = get_schools()
+
+    if request.method == 'POST':
+        form = CollegeForm(request.POST, schools=schools)
+        
+        if form.is_valid():
+            print("Is valid!")
+            print(form.cleaned_data['college'])
+            print(form.cleaned_data['email'])
+    else:
+        form = CollegeForm(schools=schools)
+    
+
+    return render(request, 'settings/account.html', {'form': form})
 
 @login_required
 def faceit(request):
