@@ -37,7 +37,7 @@ def get_discord_name(code):
     }
 
     r = requests.get(DISCORD_ENDPOINT + '/users/@me', headers=headers)
-    return r.json()['username']
+    return r.json()['username'] + '#' + r.json()['discriminator']
 
 def get_faceit_name(faceit_code):
     data = {
