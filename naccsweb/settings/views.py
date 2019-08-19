@@ -1,10 +1,26 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.utils.encoding import force_text
+from django.utils.http import urlsafe_base64_decode
 
 from .oauth import get_discord_name, get_faceit_name
 from .schools import get_schools
 from .forms import CollegeForm
+from .email import email_college_confirmation, check_token
+
+def verify(request, uidb64, token):
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+    if user is not None and check_token(user, token):
+        user.profile.verified_student = True
+        user.save()
+        return redirect('account')
+    else:
+        return render(request, 'verification/verification_invalid.html')
 
 @login_required
 def account(request):
@@ -12,16 +28,29 @@ def account(request):
 
     if request.method == 'POST':
         form = CollegeForm(request.POST, schools=schools)
-        
+
         if form.is_valid():
-            print("Is valid!")
-            print(form.cleaned_data['college'])
-            print(form.cleaned_data['email'])
+            college = form.cleaned_data['college']
+            email = form.cleaned_data['email']
+
+            user = User.objects.get(username=request.user.username)
+            user.profile.college_email = email
+            user.profile.college = college
+            user.save()
+
+            email_college_confirmation(email, request)
+            return redirect('pending')
     else:
         form = CollegeForm(schools=schools)
     
 
     return render(request, 'settings/account.html', {'form': form})
+
+@login_required
+def pending(request):
+    if request.user.profile.verified_student:
+        return redirect('/')
+    return render(request, 'verification/verification_pending.html') 
 
 @login_required
 def faceit(request):
