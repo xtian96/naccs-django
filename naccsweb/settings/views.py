@@ -68,6 +68,10 @@ def account(request):
 @login_required
 def faceit(request):
     faceit_code = request.GET.get('code')
+
+    if (faceit_code == None):
+        return redirect('account')
+
     faceit_username = get_faceit_name(faceit_code)
 
     # Enter faceit name into user profile
@@ -80,6 +84,10 @@ def faceit(request):
 @login_required
 def discord(request):
     discord_code = request.GET.get('code')
+
+    if (discord_code == None):
+        return redirect('account')
+
     discord_name = get_discord_name(discord_code)
 
     # Enter discord name into user profile
