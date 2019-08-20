@@ -1,5 +1,4 @@
 #footer {
-    margin-top: 20px;
     background-color: #0C2132;
     height: 200px;
     text-align: center;
@@ -17,7 +16,7 @@
     cursor: pointer;
 }
 .social_container > a:hover{
-    color: #ff850a;
+    color: #F65A44;
 }
 
 .fa-discord {
@@ -68,16 +67,7 @@
 }
 
 .mailing_button {
-    color: white;
     margin-left: 5px;
-    background-color: #F65A44;
     padding: 10px;
     display: inline-block;
-    border: none;
-    font-size: 14px;
-    letter-spacing: 1px;
-    cursor: pointer;
-}
-.mailing_button:hover {
-    background-color:#E98069;
 }

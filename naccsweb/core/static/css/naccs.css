@@ -57,12 +57,16 @@ nav > .content {
 }
 
 .ghost_button, #signup {
+    cursor: pointer;
+    background-color: transparent;
     border-style: solid;
     border-width: 2px;
     border: 2px solid #F65A44;
     color: #F65A44;
     transition: color 0.2s ease-in;
     transition: background-color 0.2s ease-in;
+    letter-spacing: 2px;
+    font-size: 12px;
 }
 
 .ghost_button:hover, #signup:hover {
