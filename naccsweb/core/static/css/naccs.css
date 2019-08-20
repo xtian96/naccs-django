@@ -3,6 +3,10 @@ body {
     margin: 0;
 }
 
+input {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .content {
     margin: 0 auto;
     width: 80%;
@@ -88,7 +92,7 @@ nav > .content {
     left: 0;
     right: 0;
     z-index: -1; */
-    height: 300px;
+    height: 200px;
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -97,21 +101,17 @@ nav > .content {
 }
 
 .jumbotron > h1 {
-    margin-top: -30px;
+    margin-top: -20px;
     font-size: 40px;
     letter-spacing: 8px;
     font-weight: lighter;
-    animation-name: fadein;
-    animation-duration: 3s;
-    animation-iteration-count: 1;
 }
 
 .jumbotron > .underlay {
-    height: 600px;
+    height: 500px;
     opacity: 0.6;
     position: absolute;
     top: -170px;
-    bottom: 100px;
     left: 0;
     right: 0;
     background-image: url('/static/assets/overlay_image.jpg');
@@ -133,7 +133,7 @@ nav > .content {
     font-size: 1.8em;
 }
 
-.jumbotron > .overlay {
+/* .jumbotron > .overlay {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -142,6 +142,21 @@ nav > .content {
     background-color: rgba(100, 10, 10, 0.6);
     z-index: -2;
     color: white;
+} */
+
+.jumbotron.main_jumbo {
+    height: 300px;
+}
+
+.jumbotron.main_jumbo > h1 {
+    margin-top: -30px;
+    animation-name: fadein;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+}
+
+.jumbotron.main_jumbo > .underlay {
+    height: 600px;
 }
 
 #queues {
@@ -196,7 +211,7 @@ nav > .content {
 }
 
 .panel .body_content {
-    height: 200px;
+    min-height: 150px;
     margin: 10px;
     font-size: 12px;
 }

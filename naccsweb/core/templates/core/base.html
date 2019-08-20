@@ -25,12 +25,12 @@
         </section>
       </section>
     </nav>
-
-    <section class="jumbotron">
+    <section class="jumbotron {% if main %} main_jumbo {% endif %}">
         <div class="underlay"></div>
         <div class="underlay tint"></div>
         <h1>
-          NORTH AMERICAN COLLEGIATE COUNTERSTRIKE
+          {% block jumbo_title %}
+          {% endblock %}
         </h1>
     </section>
 
