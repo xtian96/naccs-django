@@ -16,6 +16,7 @@ class CollegeForm(forms.Form):
 
         email_suffix = cleaned_data.get('email').split('@')[1]
         valid_emails = self.schools.get(cleaned_data.get('college'))
+        print('College', valid_emails)
         valid = False
         for email in valid_emails:
             if email_suffix == email:

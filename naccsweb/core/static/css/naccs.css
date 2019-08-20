@@ -3,7 +3,7 @@ body {
     margin: 0;
 }
 
-input {
+input, select {
     font-family: 'Open Sans', sans-serif;
     border: 1px solid #0C2132;
     border-radius: 2px;
