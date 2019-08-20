@@ -170,15 +170,20 @@ nav > .content {
     height: 200px;
 }
 
-#accounts {
+#account_settings {
     margin-bottom: 40px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
-#accounts > .item {
-    
+#account_settings > #main {
+    flex-grow: 3;
+}
+
+#account_settings > #sidebar {
+    flex-grow: 1;
 }
 
 .panel {
@@ -204,6 +209,7 @@ nav > .content {
 }
 
 .panel .title {
+    font-size: 20px;
     letter-spacing: 2px;
     margin-bottom: 5px;
     color: #0C2132;
@@ -230,6 +236,10 @@ nav > .content {
     justify-content: center;
     margin-bottom: 15px;
     letter-spacing: 2px;
+}
+
+.panel form {
+    margin: 20px 0 20px 0;
 }
 
 @keyframes floatup {

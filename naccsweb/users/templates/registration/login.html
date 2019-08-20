@@ -6,12 +6,15 @@
 
 {% block content %}
 <section class="content">
-  <h2>Login</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-    <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
-  </form>
+  <section class="panel">    
+    <h1 class="title">Login</h1>
+    <div class="underline"></div>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="ghost_button" type="submit">Login</button>
+      <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
+    </form>
+  </section>
 </section>
 {% endblock %}
