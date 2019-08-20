@@ -24,7 +24,10 @@ def verify(request, uidb64, token):
 
 @login_required
 def account(request):
-    schools = get_schools()
+    try:
+        schools = get_schools()
+    except:
+        schools = []
 
     if request.method == 'POST':
         # Check if resend was hit

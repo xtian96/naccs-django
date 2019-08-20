@@ -5,6 +5,10 @@
     padding: 20px;
 }
 
+#footer input {
+    min-width: 0;
+}
+
 .social_container {
     margin-top: 20px;
     margin-bottom: 30px;

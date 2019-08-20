@@ -30,4 +30,4 @@ class RegisterForm(forms.ModelForm):
     username = forms.CharField(label="Username", max_length=32)
     email    = forms.EmailField(label="Email")
     password = forms.CharField(widget=forms.PasswordInput)
-    confirm  = forms.CharField(widget=forms.PasswordInput)
+    confirm  = forms.CharField(label="Confirm Password", widget=forms.PasswordInput)

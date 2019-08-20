@@ -5,6 +5,23 @@ body {
 
 input {
     font-family: 'Open Sans', sans-serif;
+    border: 1px solid #0C2132;
+    border-radius: 2px;
+    padding: 20px 4px 4px 4px;
+    min-width: 250px;
+}
+
+input:focus {
+    box-shadow: 0 0 5px #0C2132;
+    outline-color: #0C2132;
+}
+
+label {
+    color: #0C2132;
+    padding-left: 4px;
+    padding-top: 2px;
+    position: absolute;
+    font-size: 12px;
 }
 
 .content {
@@ -165,9 +182,24 @@ nav > .content {
     justify-content: space-evenly;
 }
 
-#partners {
+#partners_bg { 
+    text-align: center;
     background-color: #eee;
     height: 200px;
+    color: #aaa;
+    letter-spacing: 1.5px;
+    margin-top: 30px;
+    padding-top: 10px;
+}
+
+#partners {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#partners > .partner {
+    height: 80px;
 }
 
 #account_settings {
@@ -240,6 +272,20 @@ nav > .content {
 
 .panel form {
     margin: 20px 0 20px 0;
+}
+
+form .ghost_button {
+    font-size: 14px;
+    padding: 10px 20px 10px 20px;
+}
+
+.errorlist {
+    background-color: pink;
+    border: 2px solid lightcoral;
+    color: white;
+    padding: 4px 8px 4px 8px;
+    list-style-type: none;
+    max-width: 400px;
 }
 
 @keyframes floatup {
