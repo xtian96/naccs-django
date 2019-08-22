@@ -5,6 +5,7 @@ from django.dispatch import receiver
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    nickname = models.CharField(max_length=32, blank=True)
     bio = models.TextField(max_length=500, blank=True)
     verified_student = models.BooleanField(default=False)
     college = models.CharField(max_length=80, blank=True)

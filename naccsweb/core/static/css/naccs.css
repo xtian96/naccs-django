@@ -280,12 +280,12 @@ form .ghost_button {
 }
 
 .errorlist {
-    background-color: pink;
-    border: 2px solid lightcoral;
+    background-color: rgb(255, 146, 164);
+    border: 2px solid rgb(255, 91, 91);
     color: white;
     padding: 4px 8px 4px 8px;
     list-style-type: none;
-    max-width: 400px;
+    max-width: 500px;
 }
 
 @keyframes floatup {

@@ -6,7 +6,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_text
 
-from .forms import RegisterForm, LoginForm
+from .forms import RegisterForm
 from .tokens import account_activation_token
 
 # User profile view
@@ -22,7 +22,7 @@ def profile(request, page_alias):
 # Register view
 def register(request):
     
-    def email_confirmation(user, request):
+    def email_confirmation(user, request, nickname):
         current_site = get_current_site(request)
         subject = "Activate your NACCS account!"
         message = render_to_string('registration/account_activation_email.txt', {
@@ -47,6 +47,9 @@ def register(request):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         form = RegisterForm(request.POST)
+        # Preserve user's case sensitivity in their name while storing
+        # their auth username as all lower-case
+        nickname = form.data['username']
         # check whether it's valid:
         if form.is_valid():
             user = form.save(commit=False)
@@ -55,9 +58,12 @@ def register(request):
             user.is_active = False
             user.save()
 
-            email_confirmation(user, request)
+            user.profile.nickname = nickname
+            user.save()
             
-            return redirect('pending')
+            email_confirmation(user, request, nickname)
+            
+            return redirect('pending_confirmation')
 
     # if a GET (or any other method) we'll create a blank form
     else:

@@ -18,7 +18,7 @@
           <a href='/login'>LOGIN</a>
           <a id="signup" class="ghost_button" href='/register'>SIGN UP</a>
           {% else %}
-          <section class="upup">HELLO {{user.username}}!</section>
+          <section class="upup">HELLO {{user.profile.nickname}}!</section>
           <a href='/settings/account'>SETTINGS</a>
           <a href='/logout'>LOGOUT</a>
           {% endif %}

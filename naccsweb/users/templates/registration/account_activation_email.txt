@@ -1,5 +1,5 @@
 {% autoescape off %}
-Hi {{ user.username }},
+Hi {{ user.profile.nickname }},
 
 Your account has successfully been created. Please click below link to activate your account
 

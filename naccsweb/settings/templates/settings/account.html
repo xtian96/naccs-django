@@ -22,9 +22,9 @@
                     <p>{{ user.profile.college }}</p>
                     {{ user.profile.college_email }}
                     {% if not user.profile.verified_student %}
-                    NOT VERIFIED! <form action="" method="post">{% csrf_token %}<input type="submit" name="resend" value="Resend"></form>
+                    <i class="fa fa-times-circle"></i> <form action="" method="post">{% csrf_token %}<input class="ghost_button" type="submit" name="resend" value="Resend"></form>
                     {% else %}
-                    VERIFIED! 
+                    <i class="fa fa-check-circle"></i>
                     {% endif %}
                     {% else %}
                     <form action="" method="post">
