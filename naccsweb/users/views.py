@@ -16,7 +16,7 @@ def profile(request, page_alias):
     except:
         return redirect('/notfound')
 
-    profile = {'username': user.username, 'email': user.email}
+    profile = {'profile': user}
     return render(request, 'users/profile.html', context=profile)
 
 # Register view

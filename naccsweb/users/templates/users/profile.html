@@ -2,7 +2,32 @@
 
 {% block title %}Profile{% endblock %}
 
+{% block jumbo_title %}{{ profile.profile.nickname }}{% endblock %}
+
 {% block content %}
-{{ username }}
-{{ email }}
+<div class="content">   
+    {{ profile.profile.nickname }}
+    {{ profile.first_name }}
+    {{ profile.last_name }}
+    {{ profile.profile.bio }}
+    <section class="panel">
+        <h1 class="title">
+            School
+        </h1>
+        <div class="underline"></div>
+        {{ profile.profile.college }}
+    </section>
+    <section class="panel">
+        <h1 class="title">
+            Team
+        </h1>
+        <div class="underline"></div>
+    </section>
+    <section class="panel">
+        <h1 class="title">
+            Hub Stats
+        </h1>
+        <div class="underline"></div>
+    </section>
+</div>
 {% endblock %}
