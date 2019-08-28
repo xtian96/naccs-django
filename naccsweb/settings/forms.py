@@ -20,7 +20,7 @@ class CollegeForm(forms.Form):
         valid_emails = self.schools.get(cleaned_data.get('college'))
         valid = False
         for email in valid_emails:
-            if email_suffix == email:
+            if email_suffix.endswith(email):
                 valid = True
                 break
 
