@@ -1,7 +1,15 @@
 {% extends 'core/base.html' %}
 
-{% block content %}
-
 {% block title %}Email verify invalid!{% endblock title %}
-  <h2>The confirmation link was invalid, possibly because it has already been used.</h2>
+
+{% block jumbo_title %}INVALID{% endblock %}
+
+{% block content %}
+<div class="content">
+  <section class="panel">
+    <h1 class="title">Confirmation Invalid</h1>
+    <div class="underline"></div>
+    <p>The confirmation link was invalid, possibly because it has already been used.</p>
+  </section>
+</div>
 {% endblock %}
